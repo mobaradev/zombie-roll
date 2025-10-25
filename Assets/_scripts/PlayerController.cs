@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     public Vector3 targetPosition;
 
     public GameManager GameManager;
+    public Animator Animator;
 
     public float JumpForce = 8.0f;
     public float TorqueForce = 10.0f;
@@ -203,7 +204,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // Clamp the position index to ensure it's always -1, 0, or 1.
-        this.HorizontalPositionIndex = Mathf.Clamp(this.HorizontalPositionIndex, -2, 2);
+        this.HorizontalPositionIndex = Mathf.Clamp(this.HorizontalPositionIndex, -3, 3);
         this.VerticalPositionIndex = Mathf.Clamp(this.VerticalPositionIndex, -1, 1);
 
         // Calculate the target X coordinate based on the current lane index.
@@ -275,7 +276,7 @@ public class PlayerController : MonoBehaviour
         this.IsRolling = true;
         this.TimeSicneRollStarted = 0.0f;
         this._rollingTimeLeft = this.RollingTime;
-        //this.Animator.SetTrigger("PlayerRun");
+        this.Animator.SetTrigger("PlayerRun");
         //this.GameManager.InfiniteRunControllerWorlds.speed = 38.0f;
         this.GameManager.InfiniteRunControllerWorlds.speed += 2.25f;
 
@@ -317,7 +318,7 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        //this.Animator.SetTrigger("PlayerJump");
+        this.Animator.SetTrigger("PlayerJump");
         this.OnJumpEvent?.Invoke();
 
         Rigidbody rb = this.GetComponent<Rigidbody>();
@@ -373,7 +374,7 @@ public class PlayerController : MonoBehaviour
         //this.GameManager.InfiniteRunControllerWorlds.speed = this.GameManager.InfiniteRunControllerWorlds.TargetSpeed;
         //this.GameManager.InfiniteRunControllerWorlds.TempTargetSpeed = this.GameManager.InfiniteRunControllerWorlds.TargetSpeed;
         //this.GameManager.SoundManager.PlaySound(Random.Range(10, 13));
-        //this.Animator.SetTrigger("PlayerHit");
+        this.Animator.SetTrigger("PlayerHit");
         Rigidbody rb = this.GetComponent<Rigidbody>();
 
         rb.AddForce(Vector3.up * 1.0f * 0.8f, ForceMode.Impulse);
