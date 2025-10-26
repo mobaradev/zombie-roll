@@ -164,7 +164,7 @@ public class PlayerController : MonoBehaviour
                 if (!this.IsComboRoll)
                 {
                     Rigidbody rb = this.GetComponent<Rigidbody>();
-                    rb.AddForce(Vector3.down * 24f, ForceMode.Impulse);
+                    rb.AddForce(Vector3.down * 24f * 2f, ForceMode.Impulse);
                     this._rollingTimeLeft += 1.0f;
                     this.GameManager.InfiniteRunControllerWorlds.speed += 3.25f;
                     //this.GameManager.InfiniteRunControllerWorlds.TempTargetSpeed += 4.0f;
