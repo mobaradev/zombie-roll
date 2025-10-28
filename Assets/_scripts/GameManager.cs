@@ -79,13 +79,10 @@ public class GameManager : MonoBehaviour
         if (this.IsPlayerDead) return;
         Debug.Log("Set Player Dead");
         this.IsPlayerDead = true;
-        this._slowDownRunControllerToStop();
-        //FindFirstObjectByType<CurveAdjuster>().IsActive = false;
+        this._reloadCurrentScene();
+        //this._slowDownRunControllerToStop();
 
-        int strawberriesCollectedBefore = PlayerPrefs.GetInt("StrawberriesCollected_Level" + this.CurrentLevelIndex, 0);
-        PlayerPrefs.SetInt("StrawberriesCollected_Level" + this.CurrentLevelIndex, strawberriesCollectedBefore + this.StrawberriesCollected);
-
-        this.TriggerGameOver();
+        //this.TriggerGameOver();
     }
 
     private void _slowDownRunControllerToStop()

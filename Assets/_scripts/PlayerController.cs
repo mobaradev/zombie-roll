@@ -128,7 +128,7 @@ public class PlayerController : MonoBehaviour
             //Debug.Break();
         }
 
-        if (this.transform.position.y <= -4f)
+        if (this.transform.position.y <= -17f)
         {
             if (!this.GameManager.IsPlayerDead)
             {
@@ -263,6 +263,27 @@ public class PlayerController : MonoBehaviour
     public void OnMoveDown()
     {
         this.VerticalPositionIndex--;
+    }
+
+    public void OnPlayerHitBlockSide()
+    {
+        Rigidbody rbb = this.GetComponent<Rigidbody>();
+        rbb.linearVelocity = Vector3.zero;
+        rbb.angularVelocity = Vector3.zero;
+
+        FindFirstObjectByType<InfiniteRunControllerWorlds>().speed = 0;
+        FindFirstObjectByType<InfiniteRunControllerWorlds>().TargetSpeed = 0;
+        FindFirstObjectByType<SideChunksController>().speed = 0;
+        FindFirstObjectByType<SideChunksController>().TargetSpeed = 0;
+
+        rbb.AddForce(Vector3.down * JumpForce * 3.75f, ForceMode.Impulse);
+
+        Vector3 randomTorque = new Vector3(
+            Random.Range(-1f, 1f),
+            Random.Range(-1f, 1f),
+            Random.Range(-1f, 1f)
+        );
+        rbb.AddTorque(randomTorque.normalized * TorqueForce * JumpForce, ForceMode.Impulse);
     }
 
     public void SpeedUp()
