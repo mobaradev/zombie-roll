@@ -57,15 +57,20 @@ public class SideChunksController : MonoBehaviour
 
         int currentIndex = this.LastGeneretedIndex + 1;
 
+        float leftSideY = Random.Range(8f, 24f);
+        float rightSideY = Random.Range(28f, 44f);
+
         // left side
-        GameObject newLeftChunk = Instantiate(this.SideChunksLeft[this.WorldIndexToUse], new Vector3(0, 0, this.NextZToSpawn), Quaternion.identity);
-        newLeftChunk.transform.parent = this.SideWrapper.transform;
-        newLeftChunk.transform.localPosition = new Vector3(-20 - 3.5f*5 - 8.75f, 0, this.NextZToSpawn);
+        //GameObject newLeftChunk = Instantiate(this.SideChunksLeft[this.WorldIndexToUse], new Vector3(0, 0, this.NextZToSpawn), Quaternion.identity);
+        //newLeftChunk.transform.parent = this.SideWrapper.transform;
+        ////newLeftChunk.transform.localPosition = new Vector3(-20 - 3.5f*5 - 8.75f, 0, this.NextZToSpawn);
+        //newLeftChunk.transform.localPosition = new Vector3(-20 - 3.5f * 0 - 8.75f, leftSideY, this.NextZToSpawn);
 
         // right side
         GameObject newRightChunk = Instantiate(this.SideChunksRight[this.WorldIndexToUse], new Vector3(0, 0, this.NextZToSpawn), Quaternion.identity);
         newRightChunk.transform.parent = this.SideWrapper.transform;
-        newRightChunk.transform.localPosition = new Vector3(20f + 3.5f * 5 - 8.75f, 0, this.NextZToSpawn);
+        //newRightChunk.transform.localPosition = new Vector3(20f + 3.5f * 5 - 8.75f, 0, this.NextZToSpawn);
+        newRightChunk.transform.localPosition = new Vector3(20f + 3.5f * 0 - 8.75f, rightSideY, this.NextZToSpawn);
 
 
         this.NextZToSpawn = this.NextZToSpawn + 18;

@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 31c93963dffc49745bc4949af733d0ea, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -144,11 +144,11 @@ Transform:
   m_GameObject: {fileID: 210087637}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 2.23}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 330585546}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &330585543
 GameObject:
@@ -241,8 +241,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 11.56, z: -22.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 210087638}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 13.95, y: 0, z: 0}
 --- !u!114 &330585547
@@ -453,7 +452,7 @@ Light:
   serializedVersion: 11
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 2
+  m_Intensity: 1.15
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -515,13 +514,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 410087039}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.366365, y: 0.10850241, z: 0.39909047, w: 0.8335051}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 31.61, y: 33.763, z: 60.99}
 --- !u!114 &410087042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1127,7 +1126,7 @@ MonoBehaviour:
   bendType: 2
   bendID: 1
   bendPivotPoint: {fileID: 210087638}
-  bendPivotPointPosition: {x: 0, y: 11.56, z: -22.8}
+  bendPivotPointPosition: {x: 0, y: 0, z: 2.23}
   bendRotationCenter: {fileID: 0}
   bendRotationCenterPosition: {x: 0, y: 0, z: 0}
   bendRotationAxis: {x: 0, y: 0, z: 0}
@@ -1212,6 +1211,7 @@ MonoBehaviour:
     - {fileID: 3010775645642795879, guid: b9eab1c10ceadbd47a5497c70d2179f1, type: 3}
     - {fileID: 3010775645642795879, guid: 79966eb8851fd46429164a8d3ce29663, type: 3}
     - {fileID: 3010775645642795879, guid: 9c9fc3e2e86c22b45a963fcb80f87193, type: 3}
+    - {fileID: 3010775645642795879, guid: 2087d37165a8d1b4b99c9259a72b7b06, type: 3}
     TrapChunks:
     - {fileID: 3010775645642795879, guid: 79966eb8851fd46429164a8d3ce29663, type: 3}
     EmptyChunks:
@@ -1500,5 +1500,6 @@ SceneRoots:
   - {fileID: 1355272226}
   - {fileID: 373894475}
   - {fileID: 1371710362}
+  - {fileID: 210087638}
   - {fileID: 1092067695}
   - {fileID: 1318626814}

@@ -194,11 +194,11 @@ public class PlayerController : MonoBehaviour
         {
             this.OnMoveRight();
         }
-        else if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.W))
+        else if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
             this.OnJump();
         }
-        else if (Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.S))
+        else if (Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         {
             this.SpeedUp();
         }
@@ -323,7 +323,7 @@ public class PlayerController : MonoBehaviour
         if (this.IsFlying)
         {
             // if (this.TimeSinceNotGrounded > 0.03f) // 0.35f // if not jumped but falling for less than t, treat it as a single jump
-            if (this.TimeSinceNotGrounded > 0.01f) // 0.35f // if not jumped but falling for less than t, treat it as a single jump
+            if (this.TimeSinceNotGrounded > 0.35f) // 0.35f // if not jumped but falling for less than t, treat it as a single jump
             {
                 if (!this.IsInDoubleJump)
                 {
@@ -392,9 +392,6 @@ public class PlayerController : MonoBehaviour
     {
         if (this.IsTemporarilyInvincible) return;
 
-        //this.GameManager.InfiniteRunControllerWorlds.speed = this.GameManager.InfiniteRunControllerWorlds.TargetSpeed;
-        //this.GameManager.InfiniteRunControllerWorlds.TempTargetSpeed = this.GameManager.InfiniteRunControllerWorlds.TargetSpeed;
-        //this.GameManager.SoundManager.PlaySound(Random.Range(10, 13));
         this.Animator.SetTrigger("PlayerHit");
         Rigidbody rb = this.GetComponent<Rigidbody>();
 
