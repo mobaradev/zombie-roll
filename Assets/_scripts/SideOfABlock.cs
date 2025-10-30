@@ -20,6 +20,7 @@ public class SideOfABlock : MonoBehaviour
         {
             Debug.Log("Player hit the side of a block!");
             other.gameObject.GetComponent<PlayerController>().OnPlayerHitBlockSide();
+            FindAnyObjectByType<GameManager>().SetPlayerDead();
         }
     }
 }

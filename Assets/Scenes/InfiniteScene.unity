@@ -144,7 +144,7 @@ Transform:
   m_GameObject: {fileID: 210087637}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 2.2299995}
+  m_LocalPosition: {x: 0, y: 11.56, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -295,7 +295,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f3c41597a1c30644894ab29bfaed27b3, type: 3}
   m_Name: 
@@ -1126,7 +1126,7 @@ MonoBehaviour:
   bendType: 2
   bendID: 1
   bendPivotPoint: {fileID: 210087638}
-  bendPivotPointPosition: {x: 0, y: 0, z: 2.2299995}
+  bendPivotPointPosition: {x: 0, y: 11.56, z: 0}
   bendRotationCenter: {fileID: 0}
   bendRotationCenterPosition: {x: 0, y: 0, z: 0}
   bendRotationAxis: {x: 0, y: 0, z: 0}
@@ -1193,8 +1193,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsRunning: 0
-  speed: 50
-  TargetSpeed: 50
+  speed: 0
+  TargetSpeed: 0
   Wrapper: {fileID: 1355272225}
   RoadSpawnZ: 120
   ChunkSpawnZ: 80
@@ -1221,6 +1221,7 @@ MonoBehaviour:
     EndChunk: {fileID: 3010775645642795879, guid: 7c87f9461eb3c1f4eb034ab4d9c6e6aa, type: 3}
     IChunk: {fileID: 3010775645642795879, guid: 7c87f9461eb3c1f4eb034ab4d9c6e6aa, type: 3}
   CurrentWorldIndex: 0
+  LastYPosIndex: 0
 --- !u!4 &1681490191
 Transform:
   m_ObjectHideFlags: 0
@@ -1263,7 +1264,7 @@ MonoBehaviour:
   SideChunksLeft:
   - {fileID: 3010775645642795879, guid: 6253ca62aa438f542bedb7d63bb427f7, type: 3}
   SideChunksRight:
-  - {fileID: 3010775645642795879, guid: 6253ca62aa438f542bedb7d63bb427f7, type: 3}
+  - {fileID: 3010775645642795879, guid: 6843c3eab19c3b84396e42bafd8dc354, type: 3}
 --- !u!1001 &1723959362
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1335,6 +1336,10 @@ PrefabInstance:
     - target: {fileID: 7977199180309384278, guid: fdeb14b6b1d857a4e97752d1f07b49b7, type: 3}
       propertyPath: m_Name
       value: Ocean
+      objectReference: {fileID: 0}
+    - target: {fileID: 7977199180309384278, guid: fdeb14b6b1d857a4e97752d1f07b49b7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1572,14 +1577,14 @@ SceneRoots:
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 876701512}
+  - {fileID: 1371710362}
+  - {fileID: 210087638}
   - {fileID: 1071555405}
   - {fileID: 1881567782}
   - {fileID: 1681490191}
   - {fileID: 506412043}
   - {fileID: 1355272226}
   - {fileID: 373894475}
-  - {fileID: 1371710362}
-  - {fileID: 210087638}
   - {fileID: 1092067695}
   - {fileID: 1318626814}
   - {fileID: 1723959362}

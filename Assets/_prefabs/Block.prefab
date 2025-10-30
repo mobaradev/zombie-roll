@@ -198,6 +198,7 @@ GameObject:
   - component: {fileID: 5790169469032124921}
   - component: {fileID: 4852620292479797926}
   - component: {fileID: 2144804969459781017}
+  - component: {fileID: 1199733132393581136}
   m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
@@ -294,6 +295,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1199733132393581136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6860635899208267705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e4edcaf4c3ea7549a722c5c1bb5cc79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxDisplacement: 5
 --- !u!1001 &6052925913598289484
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -349,8 +363,29 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 152508, guid: 98edced06879f3446b204b95d885e760, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4923465963620684343}
   m_SourcePrefab: {fileID: 100100000, guid: 98edced06879f3446b204b95d885e760, type: 3}
+--- !u!1 &6052925913598408176 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 152508, guid: 98edced06879f3446b204b95d885e760, type: 3}
+  m_PrefabInstance: {fileID: 6052925913598289484}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4923465963620684343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6052925913598408176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e4edcaf4c3ea7549a722c5c1bb5cc79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxDisplacement: 5
 --- !u!4 &6052925913598737176 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 482644, guid: 98edced06879f3446b204b95d885e760, type: 3}

@@ -229,6 +229,8 @@ public class InfiniteRunControllerWorlds : MonoBehaviour
 
     private float _getChunksRandomPosY()
     {
+        if (this.LastGeneretedIndex < 10) return 0;
+
         float randomValue = Random.value;
 
         if (this.LastYPosIndex == 0)
