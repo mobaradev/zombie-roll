@@ -43,6 +43,8 @@ public class InfiniteRunControllerWorlds : MonoBehaviour
 
     public int CurrentWorldIndex = 0;
 
+    public int LastYPosIndex = 0;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -174,9 +176,9 @@ public class InfiniteRunControllerWorlds : MonoBehaviour
     public void GenerateEmptyChunk(int worldId)
     {
         int randomChunkId = Random.Range(0, this.Worlds[worldId].EmptyChunks.Count);
-        GameObject newChunk = Instantiate(this.Worlds[worldId].EmptyChunks[randomChunkId], new Vector3(-8.75f, 0, this.NextZToSpawn), Quaternion.identity);
+        GameObject newChunk = Instantiate(this.Worlds[worldId].EmptyChunks[randomChunkId], new Vector3(-8.75f, this._getChunksRandomPosY(), this.NextZToSpawn), Quaternion.identity);
         newChunk.transform.parent = this.Wrapper.transform;
-        newChunk.transform.localPosition = new Vector3(-8.75f, 0, this.NextZToSpawn);
+        newChunk.transform.localPosition = new Vector3(-8.75f, this._getChunksRandomPosY(), this.NextZToSpawn);
 
         this.NextZToSpawn = this.NextZToSpawn + newChunk.GetComponent<ChunkController>().ChunkSize;
     }
@@ -188,9 +190,9 @@ public class InfiniteRunControllerWorlds : MonoBehaviour
         //{
         //    randomChunkId = 0;
         //}
-        GameObject newChunk = Instantiate(this.Worlds[worldId].TrapChunks[randomChunkId], new Vector3(-8.75f, 0, this.NextZToSpawn), Quaternion.identity);
+        GameObject newChunk = Instantiate(this.Worlds[worldId].TrapChunks[randomChunkId], new Vector3(-8.75f, this._getChunksRandomPosY(), this.NextZToSpawn), Quaternion.identity);
         newChunk.transform.parent = this.Wrapper.transform;
-        newChunk.transform.localPosition = new Vector3(-8.75f, 0, this.NextZToSpawn);
+        newChunk.transform.localPosition = new Vector3(-8.75f, this._getChunksRandomPosY(), this.NextZToSpawn);
 
         this.NextZToSpawn = this.NextZToSpawn + newChunk.GetComponent<ChunkController>().ChunkSize;
     }
@@ -199,18 +201,18 @@ public class InfiniteRunControllerWorlds : MonoBehaviour
     {
 
         int randomChunkId = Random.Range(0, this.Worlds[worldId].NormalChunks.Count);
-        GameObject newChunk = Instantiate(this.Worlds[worldId].NormalChunks[randomChunkId], new Vector3(-8.75f, 0, this.NextZToSpawn), Quaternion.identity);
+        GameObject newChunk = Instantiate(this.Worlds[worldId].NormalChunks[randomChunkId], new Vector3(-8.75f, this._getChunksRandomPosY(), this.NextZToSpawn), Quaternion.identity);
         newChunk.transform.parent = this.Wrapper.transform;
-        newChunk.transform.localPosition = new Vector3(-8.75f, 0, this.NextZToSpawn);
+        newChunk.transform.localPosition = new Vector3(-8.75f, this._getChunksRandomPosY(), this.NextZToSpawn);
 
         this.NextZToSpawn = this.NextZToSpawn + newChunk.GetComponent<ChunkController>().ChunkSize;
     }
 
     public void GenerateEndChunk(int worldId)
     {
-        GameObject newChunk = Instantiate(this.Worlds[worldId].EndChunk, new Vector3(-8.75f, 0, this.NextZToSpawn), Quaternion.identity);
+        GameObject newChunk = Instantiate(this.Worlds[worldId].EndChunk, new Vector3(-8.75f, this._getChunksRandomPosY(), this.NextZToSpawn), Quaternion.identity);
         newChunk.transform.parent = this.Wrapper.transform;
-        newChunk.transform.localPosition = new Vector3(-8.75f, 0, this.NextZToSpawn);
+        newChunk.transform.localPosition = new Vector3(-8.75f, this._getChunksRandomPosY(), this.NextZToSpawn);
 
         this.NextZToSpawn = this.NextZToSpawn + newChunk.GetComponent<ChunkController>().ChunkSize;
     }
@@ -218,10 +220,78 @@ public class InfiniteRunControllerWorlds : MonoBehaviour
     public void GenerateIChunk(int worldId)
     {
 
-        GameObject newChunk = Instantiate(this.Worlds[worldId].IChunk, new Vector3(-8.75f, 0, this.NextZToSpawn), Quaternion.identity);
+        GameObject newChunk = Instantiate(this.Worlds[worldId].IChunk, new Vector3(-8.75f, this._getChunksRandomPosY(), this.NextZToSpawn), Quaternion.identity);
         newChunk.transform.parent = this.Wrapper.transform;
-        newChunk.transform.localPosition = new Vector3(-8.75f, 0, this.NextZToSpawn);
+        newChunk.transform.localPosition = new Vector3(-8.75f, this._getChunksRandomPosY(), this.NextZToSpawn);
 
         this.NextZToSpawn = this.NextZToSpawn + newChunk.GetComponent<ChunkController>().ChunkSize;
+    }
+
+    private float _getChunksRandomPosY()
+    {
+        float randomValue = Random.value;
+
+        if (this.LastYPosIndex == 0)
+        {
+            if (randomValue <= 0.8f)
+            {
+
+            }
+            else if (randomValue <= 0.97f)
+            {
+                this.LastYPosIndex = 1;
+            }
+            else
+            {
+                this.LastYPosIndex = 2;
+            }
+        } else if (this.LastYPosIndex == 1)
+        {
+            if (randomValue <= 0.65f)
+            {
+
+            }
+            else if (randomValue <= 0.875f)
+            {
+                this.LastYPosIndex = 0;
+            } else
+            {
+                this.LastYPosIndex = 2;
+            }
+        } else if (this.LastYPosIndex == 2)
+        {
+            if (randomValue <= 0.5f)
+            {
+
+            }
+            else if (randomValue <= 0.785f)
+            {
+                this.LastYPosIndex = 1;
+            }
+            else
+            {
+                this.LastYPosIndex = 0;
+            }
+        }
+
+
+
+        if (this.LastYPosIndex == 0)
+        {
+            // low
+            return 0;
+        }
+        else if (this.LastYPosIndex == 1)
+        {
+            // medium
+            return 3.5f;
+        }
+        else if (this.LastYPosIndex == 2)
+        {
+            // high
+            return 7.5f;
+        }
+
+        return 0;
     }
 }
