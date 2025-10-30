@@ -74,6 +74,8 @@ public class PlayerController : MonoBehaviour
     public UnityEvent OnRollStartEvent;
     public UnityEvent OnComboRollStartEvent;
 
+    private float _timeSinceSlimeJump;
+
 
     /// <summary>
     /// Start is called before the first frame update.
@@ -103,6 +105,7 @@ public class PlayerController : MonoBehaviour
         this.TimeSinceJumpRequested += Time.deltaTime;
         this.TimeSicneRollStarted += Time.deltaTime;
         this.TimeSinceNotGrounded += Time.deltaTime;
+        this._timeSinceSlimeJump += Time.deltaTime;
 
         bool wasGrounded = this.IsGrounded;
         CheckIfGrounded();
@@ -120,12 +123,12 @@ public class PlayerController : MonoBehaviour
         {
             this.DidComboRollAlreadyHitTheGround = true;
             Rigidbody rbb = this.GetComponent<Rigidbody>();
-            // This will immediately stop all linear movement caused by any previous forces.
-            rbb.linearVelocity = Vector3.zero;
 
-            // If the impulse might have also caused rotation, you can stop that too.
-            rbb.angularVelocity = Vector3.zero;
-            //Debug.Break();
+            if (this._timeSinceSlimeJump >= 0.35f)
+            {
+                rbb.linearVelocity = Vector3.zero;
+                rbb.angularVelocity = Vector3.zero;
+            }
         }
 
         if (this.transform.position.y <= -17f)
@@ -311,11 +314,12 @@ public class PlayerController : MonoBehaviour
         if (this.IsComboRoll)
         {
             Rigidbody rbb = this.GetComponent<Rigidbody>();
-            // This will immediately stop all linear movement caused by any previous forces.
-            rbb.linearVelocity = Vector3.zero;
 
-            // If the impulse might have also caused rotation, you can stop that too.
-            rbb.angularVelocity = Vector3.zero;
+            if  (this._timeSinceSlimeJump >= 0.35f)
+            {
+                rbb.linearVelocity = Vector3.zero;
+                rbb.angularVelocity = Vector3.zero;
+            }
             this.IsRolling = false;
             this.IsComboRoll = false;
         }
@@ -356,6 +360,38 @@ public class PlayerController : MonoBehaviour
 
         this.TimeSinceJumpRequested = 0.0f;
         this.NotGroundedAndJumped = true;
+    }
+
+    public void OnJumpedOnSlime(bool isStronger = false)
+    {
+        Rigidbody rb = this.GetComponent<Rigidbody>();
+
+        rb.linearVelocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+
+        if (isStronger)
+        {
+            rb.AddForce(Vector3.up * JumpForce * 2.95f, ForceMode.Impulse);
+            this.GameManager.InfiniteRunControllerWorlds.speed += 20.25f;
+        } else
+        {
+            rb.AddForce(Vector3.up * JumpForce * 1.95f, ForceMode.Impulse);
+            this.GameManager.InfiniteRunControllerWorlds.speed += 9.25f;
+        }
+
+            // Apply a random rotational force to make the player tumble.
+            Vector3 randomTorque = new Vector3(
+                Random.Range(-1f, 1f),
+                Random.Range(-1f, 1f),
+                Random.Range(-1f, 1f)
+            );
+        rb.AddTorque(randomTorque.normalized * TorqueForce * JumpForce, ForceMode.Impulse);
+
+        
+        this._timeSinceSlimeJump = 0.0f;
+
+        this.IsComboRoll = false;
+        this.IsInDoubleJump = true;
     }
 
     private void _makeInvincible(float time)
