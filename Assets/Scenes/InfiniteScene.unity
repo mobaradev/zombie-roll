@@ -1213,6 +1213,7 @@ MonoBehaviour:
     - {fileID: 3010775645642795879, guid: 9c9fc3e2e86c22b45a963fcb80f87193, type: 3}
     - {fileID: 3010775645642795879, guid: 2087d37165a8d1b4b99c9259a72b7b06, type: 3}
     - {fileID: 3010775645642795879, guid: 656b6bd27ce12a14486e22b8cef4e657, type: 3}
+    - {fileID: 3010775645642795879, guid: 2e5892d7d90d83c49b58048421964e49, type: 3}
     TrapChunks:
     - {fileID: 3010775645642795879, guid: 79966eb8851fd46429164a8d3ce29663, type: 3}
     EmptyChunks:
