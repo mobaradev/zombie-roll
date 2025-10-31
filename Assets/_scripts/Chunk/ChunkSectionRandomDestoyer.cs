@@ -7,7 +7,7 @@ public class ChunkSectionRandomDestoyer : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (Random.Range(0.0f, 1.0f) < chanceToDestroy)
+        if (RandomManager.Instance.RandomDestroyer.NextDouble() < chanceToDestroy)
         {
             Destroy(this.gameObject);
         }
