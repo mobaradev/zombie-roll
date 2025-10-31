@@ -368,24 +368,16 @@ public class PlayerController : MonoBehaviour
         this.NotGroundedAndJumped = true;
     }
 
-    public void OnJumpedOnSlime(bool isStronger = false)
+    public void OnJumpedOnSlime(float speed, float force)
     {
         Rigidbody rb = this.GetComponent<Rigidbody>();
 
         rb.linearVelocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
 
-        if (isStronger)
-        {
-            rb.AddForce(Vector3.up * JumpForce * 2.95f, ForceMode.Impulse);
-            this.GameManager.InfiniteRunControllerWorlds.speed += 20.25f;
-            this.GameManager.InfiniteRunControllerWorlds.TargetSpeedTmp += 20.25f * 0.75f;
-        } else
-        {
-            rb.AddForce(Vector3.up * JumpForce * 1.95f, ForceMode.Impulse);
-            this.GameManager.InfiniteRunControllerWorlds.speed += 9.25f;
-            this.GameManager.InfiniteRunControllerWorlds.TargetSpeedTmp += 9.25f * 0.75f;
-        }
+        rb.AddForce(Vector3.up * JumpForce * force, ForceMode.Impulse);
+        this.GameManager.InfiniteRunControllerWorlds.speed += speed;
+        this.GameManager.InfiniteRunControllerWorlds.TargetSpeedTmp += speed * 0.75f;
 
             // Apply a random rotational force to make the player tumble.
             Vector3 randomTorque = new Vector3(

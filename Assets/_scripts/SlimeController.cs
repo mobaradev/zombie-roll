@@ -12,11 +12,11 @@ public class SlimeController : MonoBehaviour
         {
             if (other.gameObject.GetComponent<PlayerController>().IsComboRoll)
             {
-                other.gameObject.GetComponent<PlayerController>().OnJumpedOnSlime(true);
+                other.gameObject.GetComponent<PlayerController>().OnJumpedOnSlime(7.25f, 2.25f);
             }
             else
             {
-                other.gameObject.GetComponent<PlayerController>().OnJumpedOnSlime();
+                other.gameObject.GetComponent<PlayerController>().OnJumpedOnSlime(3.25f, 1.8f);
             }
 
             this.IsUsedUp = true;

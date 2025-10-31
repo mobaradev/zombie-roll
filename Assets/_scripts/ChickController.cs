@@ -16,7 +16,7 @@ public class ChickController : MonoBehaviour
                 if (!other.gameObject.GetComponent<PlayerController>().IsGrounded && other.gameObject.GetComponent<PlayerController>().TimeSinceNotGrounded >= 0.35f)
                 {
                     // no hurt when flying
-                    other.gameObject.GetComponent<PlayerController>().OnJumpedOnSlime(false);
+                    other.gameObject.GetComponent<PlayerController>().OnJumpedOnSlime(2.25f, 1.8f);
                 }
                 else
                 {
