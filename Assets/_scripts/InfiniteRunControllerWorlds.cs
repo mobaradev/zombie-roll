@@ -6,6 +6,7 @@ public class InfiniteRunControllerWorlds : MonoBehaviour
     public bool IsRunning;
     public float speed;
     public float TargetSpeed;
+    public float TargetSpeedTmp;
     public GameObject Wrapper;
     public float RoadSpawnZ;
     public float ChunkSpawnZ;
@@ -126,9 +127,14 @@ public class InfiniteRunControllerWorlds : MonoBehaviour
         {
             this.Wrapper.transform.position += Vector3.back * speed * Time.deltaTime;
 
-            if (this.speed > this.TargetSpeed)
+            if (this.speed > this.TargetSpeedTmp)
             {
                 this.speed -= Time.deltaTime * 12f;
+            }
+
+            if (this.TargetSpeedTmp > this.TargetSpeed)
+            {
+                this.TargetSpeedTmp -= Time.deltaTime * (0.75f * (this.TargetSpeedTmp - this.TargetSpeed)/3);
             }
         }
 

@@ -639,13 +639,14 @@ MonoBehaviour:
   TimeSinceJumpRequested: 0
   NotGroundedAndJumped: 0
   TimeSinceNotGrounded: 0
+  TimeSinceGrounded: 0
   IsTemporarilyInvincible: 0
   Renderer: {fileID: 353190554}
   flickerInterval: 0.1
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  groundCheckDistance: 0.8
+  groundCheckDistance: 0.4
   groundCheckPoint: {fileID: 1885458144}
   IsGrounded: 0
   OnGroundEffectPrefab: {fileID: 0}
@@ -688,9 +689,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.3072609
-  m_Height: 1.882848
+  m_Height: 1.68
   m_Direction: 1
-  m_Center: {x: 0, y: 0.98, z: 0}
+  m_Center: {x: 0, y: 0.82, z: 0}
 --- !u!33 &506412042
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1239,6 +1240,7 @@ MonoBehaviour:
   IsRunning: 0
   speed: 50
   TargetSpeed: 50
+  TargetSpeedTmp: 50
   Wrapper: {fileID: 1355272225}
   RoadSpawnZ: 120
   ChunkSpawnZ: 80
@@ -1473,7 +1475,7 @@ Transform:
   m_GameObject: {fileID: 1885458143}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.079, z: 0}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

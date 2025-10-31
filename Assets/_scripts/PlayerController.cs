@@ -41,10 +41,12 @@ public class PlayerController : MonoBehaviour
     public bool IsComboRoll;
     public bool DidComboRollAlreadyHitTheGround;
 
-    public float TimeSinceJumpRequested; // to remove
+    public float TimeSinceJumpRequested;
     public bool NotGroundedAndJumped;
 
     public float TimeSinceNotGrounded;
+
+    public float TimeSinceGrounded;
 
     // INVICIBILITY
     public bool IsTemporarilyInvincible;
@@ -106,12 +108,15 @@ public class PlayerController : MonoBehaviour
         this.TimeSicneRollStarted += Time.deltaTime;
         this.TimeSinceNotGrounded += Time.deltaTime;
         this._timeSinceSlimeJump += Time.deltaTime;
+        this.TimeSinceGrounded += Time.deltaTime;
 
         bool wasGrounded = this.IsGrounded;
         CheckIfGrounded();
         if (wasGrounded == false && this.IsGrounded == true)
         {
             if (this.OnGroundEffectPrefab) Instantiate(this.OnGroundEffectPrefab, this.transform.position + Vector3.down * 0.41f, Quaternion.identity);
+
+            this.TimeSinceGrounded = 0.0f;
         }
 
         if (this.IsGrounded)
@@ -302,7 +307,8 @@ public class PlayerController : MonoBehaviour
         this._rollingTimeLeft = this.RollingTime;
         this.Animator.SetTrigger("PlayerRun");
         //this.GameManager.InfiniteRunControllerWorlds.speed = 38.0f;
-        this.GameManager.InfiniteRunControllerWorlds.speed += 2.25f;
+        this.GameManager.InfiniteRunControllerWorlds.speed += 3.25f;
+        this.GameManager.InfiniteRunControllerWorlds.TargetSpeedTmp += 3.25f * 0.75f;
 
         this.GameManager.Energy -= 0.5f;
     }
@@ -373,10 +379,12 @@ public class PlayerController : MonoBehaviour
         {
             rb.AddForce(Vector3.up * JumpForce * 2.95f, ForceMode.Impulse);
             this.GameManager.InfiniteRunControllerWorlds.speed += 20.25f;
+            this.GameManager.InfiniteRunControllerWorlds.TargetSpeedTmp += 20.25f * 0.75f;
         } else
         {
             rb.AddForce(Vector3.up * JumpForce * 1.95f, ForceMode.Impulse);
             this.GameManager.InfiniteRunControllerWorlds.speed += 9.25f;
+            this.GameManager.InfiniteRunControllerWorlds.TargetSpeedTmp += 9.25f * 0.75f;
         }
 
             // Apply a random rotational force to make the player tumble.

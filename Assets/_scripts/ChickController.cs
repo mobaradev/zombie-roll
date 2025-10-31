@@ -9,13 +9,22 @@ public class ChickController : MonoBehaviour
             if (other.gameObject.GetComponent<PlayerController>().IsRolling)
             {
                 // effect
+                Destroy(this.gameObject);
             }
             else
             {
-                FindFirstObjectByType<GameManager>().SetPlayerHurt();
-            }
+                if (!other.gameObject.GetComponent<PlayerController>().IsGrounded && other.gameObject.GetComponent<PlayerController>().TimeSinceNotGrounded >= 0.35f)
+                {
+                    // no hurt when flying
+                    other.gameObject.GetComponent<PlayerController>().OnJumpedOnSlime(false);
+                }
+                else
+                {
+                    FindFirstObjectByType<GameManager>().SetPlayerHurt();
+                }
 
-            Destroy(this.gameObject);
+                Destroy(this.gameObject);
+            }
         }
     }
 }
