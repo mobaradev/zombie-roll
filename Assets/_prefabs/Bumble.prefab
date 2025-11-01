@@ -554,6 +554,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3925056490110497726}
   - component: {fileID: 3925056490120305758}
+  - component: {fileID: 7890369047444576611}
+  - component: {fileID: 8810855465857734158}
   m_Layer: 0
   m_Name: Bumble
   m_TagString: Untagged
@@ -616,6 +618,40 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7890369047444576611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3925056490110922654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92c29ae752463214797a86449af29d59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TriggerReactionEffectPrefab: {fileID: 119183615461286708, guid: 73e58821f96701d48904f898d9b90f43, type: 3}
+  IsChasingPlayer: 0
+  IsFast: 0
+  OnDestroyEffectPrefab: {fileID: 2433282508537954060, guid: 3ef3ae421f71c5c4e97fe12dc2fc6312, type: 3}
+  animatorX: {fileID: 0}
+--- !u!114 &8810855465857734158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3925056490110922654}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05cfc4dc07a065a45b61ddb086bc979a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  speed: 5
+  AllowYMovement: 1
+  AutoSetDirection: 1
+  Direction: {x: 0, y: 0, z: 0}
 --- !u!1 &3925056490110922716
 GameObject:
   m_ObjectHideFlags: 0

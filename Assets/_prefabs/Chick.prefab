@@ -274,8 +274,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6817621319531857479}
   - component: {fileID: 6817621319522544039}
-  - component: {fileID: 8427177577296259390}
   - component: {fileID: 5525101272079388857}
+  - component: {fileID: 3172531461431017165}
+  - component: {fileID: 5727364901906920281}
   m_Layer: 0
   m_Name: Chick
   m_TagString: Untagged
@@ -324,18 +325,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &8427177577296259390
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6817621319531895399}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19b9770b2e850b24eb1a586d175373c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!135 &5525101272079388857
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -357,6 +346,37 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.35
   m_Center: {x: 0, y: 0.23, z: 0}
+--- !u!114 &3172531461431017165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6817621319531895399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19b9770b2e850b24eb1a586d175373c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TriggerReactionEffectPrefab: {fileID: 119183615461286708, guid: 73e58821f96701d48904f898d9b90f43, type: 3}
+  IsChasingPlayer: 0
+--- !u!114 &5727364901906920281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6817621319531895399}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05cfc4dc07a065a45b61ddb086bc979a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  speed: 5
+  AllowYMovement: 0
+  AutoSetDirection: 1
+  Direction: {x: 0, y: 0, z: 0}
 --- !u!1 &6817621319531895401
 GameObject:
   m_ObjectHideFlags: 0

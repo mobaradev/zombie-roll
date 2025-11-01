@@ -18,14 +18,14 @@ public class TurtleShellController : MonoBehaviour
                 else
                 {
                     Debug.Log("Shell y = " + this.transform.position.y + " Player y = " + other.gameObject.transform.position.y);
-                    Debug.Break();
+                    //Debug.Break();
                     FindFirstObjectByType<GameManager>().SetPlayerDead();
                 }
             }
             else
             {
                 Debug.Log("Shell player not grounded");
-                Debug.Break();
+                //Debug.Break();
                 FindFirstObjectByType<GameManager>().SetPlayerDead();
             }
 

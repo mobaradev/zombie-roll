@@ -16,7 +16,7 @@ public class Box : MonoBehaviour
                 other.gameObject.GetComponent<PlayerController>().OnDestroyedSomething();
             } else
             {
-                FindFirstObjectByType<GameManager>().SetPlayerHurt();
+                FindFirstObjectByType<GameManager>().SetPlayerSlowedDown(0.4f);
             }
 
             if (this.DestroyEffectPrefab) Instantiate(this.DestroyEffectPrefab, this.transform.position, Quaternion.identity);

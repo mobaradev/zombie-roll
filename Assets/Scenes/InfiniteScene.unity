@@ -681,7 +681,7 @@ MonoBehaviour:
   groundCheckPoint: {fileID: 1885458144}
   IsGrounded: 0
   OnGroundEffectPrefab: {fileID: 0}
-  ComboEffectPrefab: {fileID: 0}
+  ComboEffectPrefab: {fileID: 180128, guid: c165cfbf01dc48a44a4fd5191fe942c6, type: 3}
   OnJumpEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -1294,6 +1294,7 @@ MonoBehaviour:
     - {fileID: 3010775645642795879, guid: 2e5892d7d90d83c49b58048421964e49, type: 3}
     - {fileID: 3010775645642795879, guid: fad7dfb5b4a3dab419464854a8f06789, type: 3}
     - {fileID: 3010775645642795879, guid: 77db92648e0affd4f80722a7794b10e4, type: 3}
+    - {fileID: 3010775645642795879, guid: 9e2827c9f11c9504191cab3e5c1e9022, type: 3}
     - {fileID: 3010775645642795879, guid: 63046188dbcec1a469b2a4e82535825b, type: 3}
     TrapChunks:
     - {fileID: 3010775645642795879, guid: 79966eb8851fd46429164a8d3ce29663, type: 3}
@@ -1343,9 +1344,9 @@ MonoBehaviour:
   LastGeneretedIndex: -1
   WorldIndexToUse: -1
   SideChunksLeft:
-  - {fileID: 3010775645642795879, guid: 6253ca62aa438f542bedb7d63bb427f7, type: 3}
+  - {fileID: 3010775645642795879, guid: aa9acc23ec60efb4fb5fc558d29e2abd, type: 3}
   SideChunksRight:
-  - {fileID: 3010775645642795879, guid: 6843c3eab19c3b84396e42bafd8dc354, type: 3}
+  - {fileID: 3010775645642795879, guid: a2bf81d728b4cb24e92a891e0c4cc0e2, type: 3}
 --- !u!114 &1681490193
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -307,8 +307,8 @@ public class PlayerController : MonoBehaviour
         this._rollingTimeLeft = this.RollingTime;
         this.Animator.SetTrigger("PlayerRun");
         //this.GameManager.InfiniteRunControllerWorlds.speed = 38.0f;
-        this.GameManager.InfiniteRunControllerWorlds.speed += 3.25f;
-        this.GameManager.InfiniteRunControllerWorlds.TargetSpeedTmp += 3.25f * 0.75f;
+        this.GameManager.InfiniteRunControllerWorlds.speed += 4.25f;
+        this.GameManager.InfiniteRunControllerWorlds.TargetSpeedTmp += 4.25f * 0.75f;
 
         this.GameManager.Energy -= 0.5f;
     }

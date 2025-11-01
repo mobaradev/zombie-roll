@@ -55,6 +55,11 @@ public class GameManager : MonoBehaviour
         }
 
         this.Energy = Mathf.Clamp(this.Energy, 0, 15);
+
+        if (this.InfiniteRunControllerWorlds.speed <= 10.0f)
+        {
+            this.SetPlayerDead();
+        }
     }
 
     public void SetPlayerHurt()
@@ -73,13 +78,20 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void SetPlayerSlowedDown(float multiplier)
+    {
+        this.InfiniteRunControllerWorlds.speed = this.InfiniteRunControllerWorlds.speed * multiplier;
+        this.InfiniteRunControllerWorlds.TargetSpeedTmp = this.InfiniteRunControllerWorlds.TargetSpeedTmp * multiplier;
+    }
+
     public void SetPlayerDead()
     {
         
         if (this.IsPlayerDead) return;
         Debug.Log("Set Player Dead");
         this.IsPlayerDead = true;
-        this._reloadCurrentScene();
+        //this._reloadCurrentScene();
+        Invoke(nameof(this._reloadCurrentScene), 1.5f);
         //this._slowDownRunControllerToStop();
 
         //this.TriggerGameOver();
