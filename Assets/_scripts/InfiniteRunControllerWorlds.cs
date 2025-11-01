@@ -174,6 +174,8 @@ public class InfiniteRunControllerWorlds : MonoBehaviour
             this.GenerateTrapChunk(worldId);
         }
 
+        this.NextZToSpawn += Random.Range(0, 30.0f);
+
 
 
         this.LastGeneretedIndex++;

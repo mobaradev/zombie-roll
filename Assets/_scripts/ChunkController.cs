@@ -14,7 +14,7 @@ public class ChunkController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (this.transform.position.z < -100)
+        if (this.transform.position.z < -80)
         {
             Destroy(this.gameObject);
         }
